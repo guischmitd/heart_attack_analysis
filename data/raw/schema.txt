@@ -7,14 +7,14 @@
 7 cp_rest_relieve (1 = relieved after rest; 0 = otherwise)
 8 pncaden (sum of 5, 6, and 7)
 9 cp_type: chest pain type
--- Value 1: typical angina
--- Value 2: atypical angina
--- Value 3: non-anginal pain
--- Value 4: asymptomatic
-10 blood_press_s_rest: resting blood pressure (in mm Hg on admission to the hospital)
+-- Typical angina pectoris. Pain that occurs in the anterior thorax, neck, shoulders, jaw, or arms is precipitated by exertion and relieved within 20 min by rest.
+-- Atypical angina. Pain in one of the above locations and either not precipitated by exertion or not relieved by rest within 20 min.
+-- Nonanginal pain. Pain not located in any of the above locations, or if so located not related to exertion, and lasting less than 10 sec or longer than 30 min.
+-- No pain.
+10 blood_press_s_rest: resting systolic blood pressure (in mm Hg on admission to the hospital)
 11 htn
 12 chol: serum cholestoral in mg/dl
-13 smoker: I believe this is 1 = yes; 0 = no (is or is not a smoker)
+13 smoker: 1 = yes; 0 = no (is or is not a smoker)
 14 smoker_cigs_per_day: (cigarettes per day)
 15 smoker_years: (number of years as a smoker)
 16 fasting_blood_sugar: (fasting blood sugar > 120 mg/dl) (1 = true; 0 = false)
@@ -39,21 +39,21 @@
 -- 4 = fast Balke
 -- 5 = Balke
 -- 6 = Noughton
--- 7 = bike 150 kpa min/min (Not sure if "kpa min/min" is what was written!)
--- 8 = bike 125 kpa min/min
--- 9 = bike 100 kpa min/min
--- 10 = bike 75 kpa min/min
--- 11 = bike 50 kpa min/min
+-- 7 = bike 150 klbm/min (Work rate in kilopounds-meter per minute. 1 klbm/min = 6.1182972778676 W)
+-- 8 = bike 125 klbm/min (Work rate in kilopounds-meter per minute. 1 klbm/min = 6.1182972778676 W)
+-- 9 = bike 100 klbm/min (Work rate in kilopounds-meter per minute. 1 klbm/min = 6.1182972778676 W)
+-- 10 = bike 75 klbm/min (Work rate in kilopounds-meter per minute. 1 klbm/min = 6.1182972778676 W)
+-- 11 = bike 50 klbm/min (Work rate in kilopounds-meter per minute. 1 klbm/min = 6.1182972778676 W)
 -- 12 = arm ergometer
 29 ex_duration: duration of exercise test in minutes
 30 st_dep_measured_at: time when ST measure depression was noted
 31 met: mets achieved
-32 heart_rate_peak: maximum heart rate achieved
-33 heart_rate_rest: resting heart rate
-34 blood_press_s_peak: peak exercise blood pressure (first of 2 parts)
-35 blood_press_d_peak: peak exercise blood pressure (second of 2 parts)
+32 heart_rate_peak: maximum heart rate achieved in stress test
+33 heart_rate_rest: resting heart rate achieved before stress test
+34 blood_press_s_peak: peak exercise systolic blood pressure 
+35 blood_press_d_peak: peak exercise diastolic blood pressure
 36 dummy
-37 blood_press_d_rest: resting blood pressure
+37 blood_press_d_rest: resting diastolic blood pressure
 38 ex_angina: exercise induced angina (1 = yes; 0 = no)
 39 ex_hypotension: exercise induced hypotension (1 = yes; 0 = no)
 40 st_dep = ST depression induced by exercise relative to rest
@@ -74,14 +74,14 @@
 -- 3 = akinesis or dyskmem (sp?)
 49 ejection_frac_ex: exercise radinalid (sp?) ejection fraction
 50 wm_abnormal_ex: exercise wall (sp?) motion
-51 thalassemia: 3 = normal; 6 = fixed defect; 7 = reversable defect
+51 thalium_stress_result: 3 = normal (no defects observed); 6 = fixed defect (defects present during exercise that persisted after redistribution); 7 = reversable defect (defects present during exercise but normalized afterward)
 52 thalsev: not used
 53 thalpul: not used
 54 earlobe: not used
 55 cmo: month of cardiac cath (sp?) (perhaps "call")
 56 cday: day of cardiac cath (sp?)
 57 cyr: year of cardiac cath (sp?)
-58 ami_risk: diagnosis of heart disease (angiographic disease status)
+58 cad: diagnosis of heart disease (angiographic disease status)
 -- Value 0: < 50% diameter narrowing
 -- Value 1: > 50% diameter narrowing
 -- (in any major vessel: attributes 59 through 68 are vessels)
