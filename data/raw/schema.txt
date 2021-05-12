@@ -2,7 +2,7 @@
 2 ssn: social security number (I replaced this with a dummy value of 0)
 3 age: age in years
 4 sex: sex (1 = male; 0 = female)
-5 cp_loc: chest pain location (1 = substernal; 0 = otherwise)
+5 cp_substernal: chest pain location (1 = substernal; 0 = otherwise)
 6 cp_exertion (1 = provoked by exertion; 0 = otherwise)
 7 cp_rest_relieve (1 = relieved after rest; 0 = otherwise)
 8 pncaden (sum of 5, 6, and 7)
@@ -27,11 +27,11 @@
 20 ekgmo (month of exercise ECG reading)
 21 ekgday (day of exercise ECG reading)
 22 ekgyr (year of exercise ECG reading)
-23 digitalis (digitalis used during exercise ECG: 1 = yes; 0 = no)
-24 betablocker (Beta blocker used during exercise ECG: 1 = yes; 0 = no)
-25 nitrate (nitrates used during exercise ECG: 1 = yes; 0 = no)
-26 ccblocker (calcium channel blocker used during exercise ECG: 1 = yes; 0 = no)
-27 diuretic (diuretic used used during exercise ECG: 1 = yes; 0 = no)
+23 digitalis_used (digitalis used during exercise ECG: 1 = yes; 0 = no)
+24 betablocker_used (Beta blocker used during exercise ECG: 1 = yes; 0 = no)
+25 nitrate_used (nitrates used during exercise ECG: 1 = yes; 0 = no)
+26 ccblocker_used (calcium channel blocker used during exercise ECG: 1 = yes; 0 = no)
+27 diuretic_used (diuretic used used during exercise ECG: 1 = yes; 0 = no)
 28 ex_protocol: exercise protocol
 -- 1 = Bruce
 -- 2 = Kottus
