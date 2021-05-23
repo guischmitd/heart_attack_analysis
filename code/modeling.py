@@ -16,7 +16,7 @@ def preprocess(df, test_size=0.30, target_col='target'):
     X = df.drop(target_col, axis=1).copy()
     y = df[[target_col]].copy()
     
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=None)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=42)
 
     return X_train, X_test, y_train, y_test
 

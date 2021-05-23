@@ -2,7 +2,7 @@ feature,feature_type
 sex_F,G
 sex_M,G
 cp_type_atypical_angina,H
-cp_type_no_pain,H
+cp_type_no_pain,?
 cp_type_non_anginal,H
 cp_type_typical_angina,H
 rest_ecg_hypertrophy,T

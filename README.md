@@ -6,14 +6,5 @@ In short, we'd like to answer 3 questions about heart disease:
 2. Do genetic/intrinsic factors play a larger role than environmental/behavioral ones?
 3. Is there a simple or low-cost way to evaluate one's own risk of heart attack?
 
-# CRISP-DM
-The Cross-Industry Standard Process for Data Mining, or CRISP-DM is a process for interpreting data
-in a structured way and gathering relevant information from a business or research standpoint. 
-The process is composed of the following steps:
-1. Business Understanding
-2. Data Understanding
-3. Data Preparation
-4. Modeling
-5. Evaluation
-6. Deployment
+Results are published on this Medium article
 

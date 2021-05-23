@@ -5,7 +5,6 @@
 | sex_F                              |                 -0.3218 |
 | ex_duration                        |                 -0.2834 |
 | thalium_stress_result_normal       |                 -0.2774 |
-| chol                               |                 -0.2293 |
 | heart_rate_rest                    |                 -0.2102 |
 | cp_type_non_anginal                |                 -0.2101 |
 | st_slope_peak_up                   |                 -0.1729 |
@@ -43,6 +42,7 @@
 | smoker_years                       |                  0.1027 |
 | rest_ecg_st-t_abnormal             |                  0.1043 |
 | ex_hypotension                     |                  0.1141 |
+| chol                               |                  0.1154 |
 | st_slope_peak_down                 |                  0.1251 |
 | fasting_blood_sugar                |                  0.1333 |
 | ex_protocol_balke                  |                  0.1581 |

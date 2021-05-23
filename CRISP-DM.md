@@ -1,4 +1,16 @@
 # WIP - Come back later
+## Introduction: the CRISP-DM framework
+The Cross-Industry Standard Process for Data Mining, or CRISP-DM is a process for interpreting data
+in a structured way and gathering relevant information from a business or research standpoint. 
+The process is composed of the following steps:
+1. Business Understanding
+2. Data Understanding
+3. Data Preparation
+4. Modeling
+5. Evaluation
+6. Deployment
+
+The following is a summary of the steps taken in my analysis, specifically following the CRISP-DM framework steps.
 
 ## Business understanding: Heart disease
 Coronary artery disease is the most common cause of death globally. Let that sink in. It makes up 15.6% of all deaths globally, and affected upwards of 110 million people in 2015. In the US, according to the CDC, 1 in every 4 deaths is due to heart diseases, of which CAD is the most prevalent.
@@ -14,7 +26,8 @@ I started work investigating this subset of the data available on Kaggle, but qu
 ## Data preparation: 80% of the work
 *Missing samples, irrelevant columns, feature transformations, categoricals*
 
-Although the Cleveland subset of the data is well formatted and clean, the original source is far from that. Considering it was collected in the 80s, I was not expecting any common file formats, and that assumption was right. The data are scattered between 4 .data files with slightly different structures, and the one pertaining to Cleveland had a corrupted portion. I will not go into details about this step, but you can find my parsing code in my repo on github.
+Although the Cleveland subset of the data is well formatted and clean, the original source is far from that. Considering it was collected in the 80s, I was not expecting any common file formats, and that assumption was right. The data are scattered between 4 `.data` files with slightly different structures, and the one pertaining to Cleveland had a corrupted portion.
+
 ## Modeling: Turning numbers into magic
 *Correlations, linear and ensemble models, train and test results*
 
