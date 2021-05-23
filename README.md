@@ -3,7 +3,7 @@ Analysis of medical data in order to get a better understanding about heart atta
 In short, we'd like to answer 3 questions about heart disease:
 
 1. What are some of the key indicators of coronary artery disease?
-2. Do genetic/instrinsic factors play a larger role than environmental/behavioral ones?
+2. Do genetic/intrinsic factors play a larger role than environmental/behavioral ones?
 3. Is there a simple or low-cost way to evaluate one's own risk of heart attack?
 
 # CRISP-DM
