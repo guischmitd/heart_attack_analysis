@@ -47,10 +47,13 @@ The Framingham risk model can be found on the `code/framingham.py` module. Code 
 
 
 # Results
+
 **1. What are some of the key indicators of coronary artery disease?**
 As a whole, the correlation analysis indicates that the key indicators to keep an eye on for predicting heart disease risk are age (older), sex (male), exercise induced angina (chest pain), exercise endurance (longer periods and higher heart rates), and specific medical test results like ST wave depression and Thallium-201 Scintigraphy results.
+
 **2. Do genetic/intrinsic factors play a larger role than environmental/behavioral ones?**
 Overall, genetic features prevailed as better predictors of CAD risk, especially considering the recall (or sensitivity) score. The scores were not on par with the ones found earlier when training the models with all available features, which was partly expected. Restricting the models to so few features clearly had a negative impact on their prediction capabilities, but the comparison still holds.
+
 **3. Is there a simple or low-cost way to evaluate one's own risk of heart attack?**
 We were able to get really close to the full model without using any of the more costly and complex test results, we were even able to achieve a higher recall, even if at the expense of precision. This tells us that, at least for this sample, we could predict the heart disease risk of a patient to a fairly high degree of confidence without the need of expensive equipment and highly specialized staff.
 
