@@ -1,14 +1,21 @@
-# Heart Attack Analysis
-Analysis of medical data in order to get a better understanding about heart attack risk.
-In short, we'd like to answer 3 questions about heart disease:
+# Heart Disease Risk Analysis
+## Introduction
+Analysis of medical data in order to get a better understanding about heart attack risk. This project is part of my Udacity Data Scientist Nanodegree program. In short, we'd like to answer the following questions about heart disease:
+
 
 1. What are some of the key indicators of coronary artery disease?
+
 2. Do genetic/intrinsic factors play a larger role than environmental/behavioral ones?
-3. Is there a simple or low-cost way to evaluate one's own risk of heart attack?
 
-Results and discussion are published on this project's [Medium article](https://guischmitd.medium.com/dealing-with-the-most-common-cause-of-death-in-the-world-c8b4fb509ac1)
+3. Is there a simple or low-cost way to evaluate one's own risk of heart attack
 
-# Installation and running
+
+General results and discussion are published on this project's [Medium article](https://guischmitd.medium.com/dealing-with-the-most-common-cause-of-death-in-the-world-c8b4fb509ac1)
+
+A technical summary of the analysis in terms of the steps outlined by the CRISP-DM framework can be found on the `CRISP-DM.md` file at the root of this repository. 
+
+
+## Installation and running
 ### Copy and paste instructions
 For running the code and notebooks, first create and activate a virtual environment (instructions for linux or windows with git bash)
 ```
@@ -35,7 +42,8 @@ pip install -r requirements.txt
 - `jupyter` for running ipython notebooks
 - `tqdm` and `tabulate` for progress bars and enabling pandas output to markdown and other table formats
 
-# Project components
+---
+## Project components
 Run the ipython notebooks in the `code/` directory to follow along the data preparation, modeling and evaluation processes.
 The Framingham risk model can be found on the `code/framingham.py` module. Code for preprocessing, model training, evaluation and optimization can be found on `data/modeling.py`
 
@@ -46,7 +54,10 @@ The Framingham risk model can be found on the `code/framingham.py` module. Code 
 5. `code\5_low-cost_model.ipynb` is concerned with answering **question 3** by using all the prior knowledge and training a model without features that are costly to measure (like specialized medical tests). The resulting model is compared to the full feature model trained on **3.** and to the Framingham risk score model, implemented in `code/framingham.py`.
 
 
-# Results
+---
+
+
+## Results
 
 **1. What are some of the key indicators of coronary artery disease?**
 As a whole, the correlation analysis indicates that the key indicators to keep an eye on for predicting heart disease risk are age (older), sex (male), exercise induced angina (chest pain), exercise endurance (longer periods and higher heart rates), and specific medical test results like ST wave depression and Thallium-201 Scintigraphy results.
