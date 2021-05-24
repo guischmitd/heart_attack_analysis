@@ -11,8 +11,20 @@ np.random.seed(42)
 
 def preprocess(df, test_size=0.30, target_col='target'):
     """
-    Splits target and feature columns of a dataframe into X and y dfs or arrays.
-    Also splits the data into train and test sets, according to a test_size parameter. 
+    Description:
+        Splits target and feature columns of a dataframe into X and y dfs or arrays.
+        Also splits the data into train and test sets, according to a test_size parameter.
+
+    Arguments:
+        df : Pandas dataframe containing all feature columns and target
+        test_size : float belonging to the open interval (0, 1) to define the test set relative size
+        target_col : string that defines the target column of the classification problem (default is "target")
+
+    Returns:
+        X_train : Portion of the dataframe containing all training samples for feature columns
+        X_test : Portion of dataframe containing all testing samples for feature columns
+        y_train : Portion of dataframe containing all trainig targets
+        y_test : Portion of dataframe containing all testing targets
     """
     X = df.drop(target_col, axis=1).copy()
     y = df[[target_col]].copy()
@@ -24,8 +36,18 @@ def preprocess(df, test_size=0.30, target_col='target'):
 
 def train(X_train, y_train, model_constructor=LinearRegression, **model_args):
     """
-    Trains a sklearn compatible model given train and test data as well as a model
-    constructor and keyword parameters.
+    Description:
+        Trains a sklearn compatible model given train and test data as well as a model
+        constructor and keyword parameters.
+
+    Arguments:
+        X_train : Training set features
+        y_train : Training set targets
+        model_constructor : sklearn compatible model constructor (must implement .fit() method)
+        model_args : dict of keyword arguments passed directly to model_constructor during instantiation
+
+    Returns:
+        model : The trained model
     """
     model = model_constructor(**model_args)
     
@@ -36,10 +58,22 @@ def train(X_train, y_train, model_constructor=LinearRegression, **model_args):
 
 def evaluate(model, X_train, X_test, y_train, y_test, metrics=[f1_score, accuracy_score, precision_score, recall_score]):
     """
-    Evaluates a trained model given its train and test arrays, 
-    as well as sklearn compatible metric functions.
+    Description:
+        Evaluates a trained model given its train and test arrays, 
+        as well as sklearn compatible metric functions.
 
-    Returns a metrics dictionary for train and test scores.
+    Arguments:
+        model : a trained sklearn compatible model (must implement the .predict() method)
+        X_train : Portion of the dataframe containing all training samples for feature columns
+        X_test : Portion of dataframe containing all testing samples for feature columns
+        y_train : Portion of dataframe containing all trainig targets
+        y_test : Portion of dataframe containing all testing targets
+        metrics : list of sklearn compatible metric functions with which to evaluate the model
+                  (default = [f1_score, accuracy_score, precision_score, recall_score])
+
+    Returns:
+        score_train : Metrics dictionary for train scores.
+        score_test : Metrics dictionary for test scores.
     """
     y_pred_train = model.predict(X_train)
     y_pred_test = model.predict(X_test)
@@ -59,17 +93,18 @@ def evaluate(model, X_train, X_test, y_train, y_test, metrics=[f1_score, accurac
 
 def optimize(df, test_size, model_constructor, param_list, target_col='target', eval_metric='f1_score', plot=True, **kwargs):
     """
-    Optimizes a predictive model based on a list of parameter variations.
-    params:
-        df - A Dataframe containing all data samples and features
-        test_size - float belonging to the open interval (0, 1) to define the test set relative size
-        model_constructor - SKLearn model constructor (must implement .fit() and .predict())
-        param_list - a list containing at least one dict with keyword arguments for model training
-        target_col - string that defines the target column of the classification problem (default is "target")
-        eval_metric - A single metric with which to choose the best performing model (default is "f1_score")
-        plot - Plots the train/test scores (default is True)
+    Description: Optimizes a predictive model based on a list of parameter variations.
+    
+    Arguments:
+        df : A Dataframe containing all data samples and features
+        test_size : float belonging to the open interval (0, 1) to define the test set relative size
+        model_constructor : SKLearn model constructor (must implement .fit() and .predict())
+        param_list : a list containing at least one dict with keyword arguments for model training
+        target_col : string that defines the target column of the classification problem (default is "target")
+        eval_metric : A single metric with which to choose the best performing model (default is "f1_score")
+        plot : Boolean indicating whether to plot the train/test scores during training (default is True)
 
-    returns:
+    Returns:
         best_model - The best scoring trained model instance
         training_history - A list of dicts containing the parameters used for each training and its respective train and test scores
         best_score - A dict containing the scores achieved by the best trained model
@@ -108,9 +143,17 @@ def optimize(df, test_size, model_constructor, param_list, target_col='target', 
 
 def plot_score_comparison(scores, model_names, save_path=None):
     """
-    Plots a score comparison bar plot when provided with score dicts (like the ones
-    generated by the evaluate function) and model_names (for plot legend). The save_path
-    optional argument can be set so the plot is saved at the specified location.
+    Description:
+        Plots a score comparison bar plot when provided with score dicts and model_names. 
+        The save_path optional argument can be set so the plot is saved at the specified location.
+
+    Arguments:
+        scores : list of score dicts (like the ones generated by the evaluate function)
+        model_names : list of string names for each model. Must have same length as the `scores` list
+        save_path : *Optional*. Saves the generated plot to the provided path if set to a valid string path.
+
+    Returns:
+        None
     """
     performance_df = pd.DataFrame(scores, index=model_names).T * 100
     print(performance_df)

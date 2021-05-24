@@ -6,6 +6,21 @@ class FraminghamModel:
     source = https://en.wikipedia.org/wiki/Framingham_Risk_Score
     """
     def __init__(self, sex_col='sex_M', age_col='age', chol_col='chol', blood_press_col='blood_press_s_rest', smoker_col='smoker'):
+        """
+        Description:
+            Initializes the model.
+        
+        Arguments:
+            sex_col : String identifying the name of the column containing the `sex` feature
+            age_col : String identifying the name of the column containing the `age` feature
+            chol_col : String identifying the name of the column containing the `cholesterol` feature
+            blood_press_col : String identifying the name of the column containing the `blood_pressure` feature
+            smoker_col : String identifying the name of the column containing the `smoker` feature
+
+        Returns:
+            None
+        """
+
         self.age_score = {'F': {34: -7, 39: -3, 44: 0, 49: 3, 54: 6, 59: 8, 64: 10, 69: 12, 74: 14, np.inf: 16},
                            'M': {34: -7, 39: -4, 44: 0, 49: 3, 54: 6, 59: 8, 64: 10, 69: 11, 74: 12, np.inf: 13},
                           }
@@ -37,8 +52,8 @@ class FraminghamModel:
                            }
                     }
 
-        self.result_dict = {'F': {9: 0, 12: 0.01, 14: 0.02, 15: 0.03, 16: 0.04, 17: 0.05, 18: 0.06, 19: 0.08, 20: 0.11, 21: 0.14, 22: 0.17, 23: 0.22, 24: 0.27, np.inf: 0.3},
-                            'M': {1: 0, 4: 0.01, 6: 0.02, 7: 0.03, 8: 0.04, 9: 0.05, 10: 0.06, 11: 0.08, 12: 0.1, 13: 0.12, 14: 0.16, 15: 0.2, 16: 0.25, np.inf: 0.3}
+        self.result_dict = {'F': {9: 0.0, 12: 0.01, 14: 0.02, 15: 0.03, 16: 0.04, 17: 0.05, 18: 0.06, 19: 0.08, 20: 0.11, 21: 0.14, 22: 0.17, 23: 0.22, 24: 0.27, np.inf: 0.3},
+                            'M': {1: 0.0, 4: 0.01, 6: 0.02, 7: 0.03, 8: 0.04, 9: 0.05, 10: 0.06, 11: 0.08, 12: 0.1, 13: 0.12, 14: 0.16, 15: 0.2, 16: 0.25, np.inf: 0.3}
                             }
 
         self.sex_col=sex_col
@@ -48,6 +63,19 @@ class FraminghamModel:
         self.smoker_col=smoker_col
     
     def predict(self, X, bp_treatment='untreated'):
+        """
+        Description:
+            Predicts the Framingham risk score to a given patient
+
+        Arguments:
+            X : pd.Series containing the patient features for predicting
+            bp_treatment : Whether the patient is on blood pressure controlling drugs 
+                           (possible values : ('treated', 'untreated'). Default : 'untreated')
+
+        Returns:
+            result : Framingham risk score of the patient, from 0.0 to 0.3 (0 - 30%)
+        """
+
         try:
             sex, age, chol, bp = X[self.sex_col], X[self.age_col], X[self.chol_col], X[self.blood_press_col]
             smoker = X[self.smoker_col]
